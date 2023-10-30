@@ -1,12 +1,11 @@
-import { Response, NextFunction } from 'express';
 import { isArray, isPlainObject, isString } from 'lodash';
 
-const trimBodyString = (req: any, res: Response, next: NextFunction) => {
+const trimBodyString = (req, res, next) => {
   const body = req.body;
 
-  const trimData = (obj: any) => {
+  const trimData = (obj) => {
     if (isPlainObject(obj)) {
-      Object.entries(obj).forEach(([key, value]: any) => {
+      Object.entries(obj).forEach(([key, value]) => {
         if (isString(value)) {
           obj[key] = value.trim()
         }
@@ -31,4 +30,4 @@ const trimBodyString = (req: any, res: Response, next: NextFunction) => {
   next()
 }
 
-export default trimBodyString;
+module.exports = trimBodyString;
