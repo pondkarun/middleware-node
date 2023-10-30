@@ -1,13 +1,12 @@
 import { Response, NextFunction } from 'express';
-import { ReqRequest } from '../interface/request.interface';
 import { isArray, isPlainObject, isString } from 'lodash';
 
-const trimBodyString = (req: ReqRequest, res: Response, next: NextFunction) => {
+const trimBodyString = (req: any, res: Response, next: NextFunction) => {
   const body = req.body;
 
   const trimData = (obj: any) => {
     if (isPlainObject(obj)) {
-      Object.entries(obj).forEach(([key, value]) => {
+      Object.entries(obj).forEach(([key, value]: any) => {
         if (isString(value)) {
           obj[key] = value.trim()
         }
