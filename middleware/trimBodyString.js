@@ -1,4 +1,4 @@
-import { isArray, isPlainObject, isString } from 'lodash';
+const { isArray, isPlainObject, isString } = require('lodash');
 
 const trimBodyString = (req, res, next) => {
   const body = req.body;
